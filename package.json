@@ -1,0 +1,20 @@
+{
+  "name": "way2vat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"node index.js\" \"node ./taskScheduler/taskScheduler.js\" \"node ./taskScheduler/handleMessage.js\""
+  },
+  "author": "Ran Tzafrir",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "cron": "^1.8.2",
+    "express": "^4.17.1",
+    "node-schedule": "^1.3.2",
+    "redis": "^2.8.0",
+    "shelljs": "^0.8.3"
+  }
+}
