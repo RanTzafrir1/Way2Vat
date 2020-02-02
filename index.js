@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const redis = require('redis');
-const validateDatev = require('./util/validators');
+const validateDate = require('./util/validators');
 
 const app = express();
 app.use(bodyParser.json());
