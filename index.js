@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const redis = require('redis');
-const validators = require('./util/validators');
+const validateDatev = require('./util/validators');
 
 const app = express();
 app.use(bodyParser.json());
@@ -19,13 +19,13 @@ app.post('/echoAtTime', (req, res) => {
   //Validate request
   if(!messageParams.message || !messageParams.jsDateTime) {
     return res.json({
-      message: 'Bad request',
-      status: 200
+      message: 'Bad request, missing request params',
+      status: 403
     });
-  } else if (!validators.validateDate) {
+  } else if (!validateDate(messageParams.jsDateTime)) {
     return res.json({
-      message: 'Bad request',
-      status: 200
+      message: 'Invalid date',
+      status: 403
     });
   }
 
